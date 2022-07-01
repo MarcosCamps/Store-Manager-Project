@@ -18,4 +18,11 @@ const getById = async (req, res) => {
   res.status(200).json(dataId[0]);
 };
 
-module.exports = { getAll, getById };
+const addProduct = async (req, res) => {
+  const { name } = req.body;
+  const product = await productsService.addProduct({ name });
+  console.log(product);
+  if (product) return res.status(201).send({ id: product.id, name });
+};
+
+module.exports = { getAll, getById, addProduct };
