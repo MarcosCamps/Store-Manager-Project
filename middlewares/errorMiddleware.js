@@ -1,5 +1,5 @@
-// const errorMiddleware = (error, req, res, next) => {
-//     res.status(404).send({ message: 'Product not found' });
-//   };
+const errorMiddleware = (error, req, res, _next) => {
+  res.status(error.status).send({ message: error.message });
+  };
   
-//   module.exports = errorMiddleware;
+  module.exports = errorMiddleware;
