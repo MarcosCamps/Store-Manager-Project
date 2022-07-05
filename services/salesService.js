@@ -8,5 +8,14 @@ const addSale = async (products) => {
   await Promise.all(promisses);
   return { id: saleId, itemsSold: products };
 };
+const getAll = async () => {
+  const data = await salesModels.getAll();
+  return data;
+};
 
-module.exports = { addSale };
+const getById = async (id) => {
+  const data = await salesModels.getById(id);
+  return data;
+};
+
+module.exports = { addSale, getAll, getById };
