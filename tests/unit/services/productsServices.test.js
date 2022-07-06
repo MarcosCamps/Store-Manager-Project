@@ -29,9 +29,9 @@ describe('Testing function getAll', () => {
         sinon.stub(productsModels, 'getAll').resolves(payloadProducts);
       });
 
-      // afterEach(() => {
-      //   productsModels.getAll.restore();
-      // });
+      afterEach(() => {
+        sinon.restore();
+      });
 
       it('should returns an array', async () => {
         const result = await productsService.getAll();
